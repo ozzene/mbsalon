@@ -1,0 +1,47 @@
+name: mbs
+description: A new Flutter project.
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.1
+  geolocator: ^11.1.0
+  device_preview: ^1.1.0
+  get: ^4.6.6
+  shared_preferences: ^2.2.3
+  lottie: ^2.7.0
+  dio: ^5.6.0
+  connectivity_plus: ^5.0.2
+  image_picker: ^1.0.8
+  flutter_svg: ^2.0.10+1
+  flutter_staggered_grid_view: ^0.7.0
+  dotted_border: ^2.1.0
+  share_plus: ^7.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/language/
+    - assets/images/icons/
+    - assets/images/images/
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/font/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/font/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/font/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/font/Roboto-Black.ttf
+          weight: 900
