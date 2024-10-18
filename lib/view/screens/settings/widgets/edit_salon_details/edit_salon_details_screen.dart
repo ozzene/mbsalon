@@ -278,7 +278,7 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       elevation: 0,
-                                      backgroundColor: const Color(0xFFC8E6C9),
+                                      backgroundColor: const Color(0xFFC8E6C9).withOpacity(0.5),
                                       textStyle: const TextStyle(
                                           color: Colors.white,
                                           fontStyle: FontStyle.normal),
