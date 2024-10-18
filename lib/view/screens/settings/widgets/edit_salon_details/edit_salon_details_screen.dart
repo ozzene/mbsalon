@@ -103,7 +103,6 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                     .hintColor
                                     .withOpacity(0.25),
                                 inputType: TextInputType.emailAddress,
-                                // errorText: "Please enter your email",
                                 borderColor: null,
                               ),
                             ],
