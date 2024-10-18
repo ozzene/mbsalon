@@ -19,7 +19,9 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf4f4f4),
+      backgroundColor: const Color(
+        0xFFf4f4f4,
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,8 +62,8 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
               ),
             ),
             SizedBox(
-                            height: Dimensions.paddingSizeDefault,
-                          ),
+              height: Dimensions.paddingSizeDefault,
+            ),
             Expanded(
               child: Container(
                 color: Colors.white,
@@ -73,22 +75,22 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                       padding: EdgeInsets.all(
                         Dimensions.paddingSizeDefault,
                       ),
-                      
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              
                               Text(
                                 "Salon Name",
-                                style:
-                                    Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                          fontSize: Dimensions.fontSizeLarge,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                        ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      fontSize: Dimensions.fontSizeLarge,
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 1,
+                                    ),
                               ),
                               SizedBox(
                                 height: Dimensions.paddingSizeSmall,
@@ -97,8 +99,9 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                 borderRadius: Dimensions.radiusSmall,
                                 hintText: 'Rocky : ',
                                 controller: TextEditingController(),
-                                fillColor:
-                                    Theme.of(context).hintColor.withOpacity(0.25),
+                                fillColor: Theme.of(context)
+                                    .hintColor
+                                    .withOpacity(0.25),
                                 inputType: TextInputType.emailAddress,
                                 // errorText: "Please enter your email",
                                 borderColor: null,
@@ -113,12 +116,14 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                               ),
                               Text(
                                 "About Salon",
-                                style:
-                                    Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                          fontSize: Dimensions.fontSizeLarge,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                        ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      fontSize: Dimensions.fontSizeLarge,
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 1,
+                                    ),
                               ),
                               SizedBox(
                                 height: Dimensions.paddingSizeSmall,
@@ -127,8 +132,9 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                 borderRadius: Dimensions.radiusSmall,
                                 hintText: 'About Salon',
                                 controller: TextEditingController(),
-                                fillColor:
-                                    Theme.of(context).hintColor.withOpacity(0.25),
+                                fillColor: Theme.of(context)
+                                    .hintColor
+                                    .withOpacity(0.25),
                                 inputType: TextInputType.emailAddress,
                                 // errorText: "Please enter your email",
                                 borderColor: null,
@@ -144,12 +150,14 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                               ),
                               Text(
                                 "Salon Address",
-                                style:
-                                    Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                          fontSize: Dimensions.fontSizeLarge,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                        ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      fontSize: Dimensions.fontSizeLarge,
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 1,
+                                    ),
                               ),
                               SizedBox(
                                 height: Dimensions.paddingSizeSmall,
@@ -158,8 +166,9 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                 borderRadius: Dimensions.radiusSmall,
                                 hintText: 'Salon Address',
                                 controller: TextEditingController(),
-                                fillColor:
-                                    Theme.of(context).hintColor.withOpacity(0.25),
+                                fillColor: Theme.of(context)
+                                    .hintColor
+                                    .withOpacity(0.25),
                                 inputType: TextInputType.emailAddress,
                                 // errorText: "Please enter your email",
                                 borderColor: null,
@@ -174,12 +183,14 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                               ),
                               Text(
                                 "Phone Number",
-                                style:
-                                    Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                          fontSize: Dimensions.fontSizeLarge,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                        ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      fontSize: Dimensions.fontSizeLarge,
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 1,
+                                    ),
                               ),
                               SizedBox(
                                 height: Dimensions.paddingSizeSmall,
@@ -189,8 +200,9 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                   borderRadius: BorderRadius.circular(
                                     Dimensions.radiusSmall,
                                   ),
-                                  color:
-                                      Theme.of(context).hintColor.withOpacity(0.25),
+                                  color: Theme.of(context)
+                                      .hintColor
+                                      .withOpacity(0.25),
                                 ),
                                 child: Row(
                                   children: [
@@ -217,7 +229,8 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                             .textTheme
                                             .bodyMedium
                                             ?.copyWith(
-                                              fontSize: Dimensions.fontSizeLarge,
+                                              fontSize:
+                                                  Dimensions.fontSizeLarge,
                                               fontWeight: FontWeight.w400,
                                               letterSpacing: 1,
                                               color: Colors.white,
@@ -248,12 +261,14 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                               ),
                               Text(
                                 "Salon Location",
-                                style:
-                                    Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                          fontSize: Dimensions.fontSizeLarge,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 1,
-                                        ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      fontSize: Dimensions.fontSizeLarge,
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 1,
+                                    ),
                               ),
                               SizedBox(
                                 height: Dimensions.paddingSizeSmall,
@@ -276,7 +291,8 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                           ),
                                         ),
                                       ),
-                                      shadowColor: Theme.of(context).primaryColor,
+                                      shadowColor:
+                                          Theme.of(context).primaryColor,
                                     ),
                                     onPressed: () async {},
                                     child: Text(
@@ -302,7 +318,8 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       elevation: 0,
-                                      backgroundColor: Theme.of(context).primaryColor,
+                                      backgroundColor:
+                                          Theme.of(context).primaryColor,
                                       textStyle: const TextStyle(
                                           color: Colors.white,
                                           fontStyle: FontStyle.normal),
@@ -313,7 +330,8 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                           ),
                                         ),
                                       ),
-                                      shadowColor: Theme.of(context).primaryColor,
+                                      shadowColor:
+                                          Theme.of(context).primaryColor,
                                     ),
                                     onPressed: () async {},
                                     child: Text(
@@ -333,14 +351,11 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                           )
                         ],
                       ),
-                  
                     ),
                   ),
                 ),
               ),
             )
-          
-          
           ],
         ),
       ),
