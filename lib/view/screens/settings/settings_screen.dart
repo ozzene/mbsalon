@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mbs/util/dimensiona.dart';
 import 'package:mbs/util/images.dart';
+import 'package:mbs/view/screens/settings/widgets/edit_salon_details/edit_salon_details_screen.dart';
 import 'package:mbs/view/widgets/custom_switch.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -355,28 +356,38 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     SizedBox(
                       height: Dimensions.paddingSizeDefault,
                     ),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: Dimensions.paddingSizeDefault,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Edit Salon Details",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(
-                                  fontSize: Dimensions.fontSizeDefault,
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      const Color(0xFF121212).withOpacity(0.6),
-                                  letterSpacing: 1,
-                                ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EditSalonDetailsScreen(),
                           ),
-                        ],
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.paddingSizeDefault,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Edit Salon Details",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(
+                                    fontSize: Dimensions.fontSizeDefault,
+                                    fontWeight: FontWeight.w500,
+                                    color: const Color(0xFF121212)
+                                        .withOpacity(0.6),
+                                    letterSpacing: 1,
+                                  ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -877,18 +888,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       color: Colors.white,
                     ),
                     //logout
-                    SizedBox(
-                      height: Dimensions.paddingSizeDefault,
-                    ),
+
                     Container(
+                      width: Get.width,
                       padding: EdgeInsets.symmetric(
                         horizontal: Dimensions.paddingSizeDefault,
                       ),
-                      width: Get.width,
-                      color: Colors.red.withOpacity(0.5),
+                      height: 50,
+                      color: Colors.red.withOpacity(0.3),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             "Logout",
@@ -898,16 +908,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 ?.copyWith(
                                   fontSize: Dimensions.fontSizeDefault,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.red.withOpacity(0.75),
+                                  color: Colors.red.withOpacity(0.5),
                                   letterSpacing: 1,
                                 ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: Dimensions.paddingSizeDefault,
-                    ),
+
                     const Divider(
                       thickness: 12,
                       color: Colors.white,
