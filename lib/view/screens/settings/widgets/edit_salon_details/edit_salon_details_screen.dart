@@ -322,7 +322,7 @@ class _EditSalonDetailsScreenState extends State<EditSalonDetailsScreen> {
                                     ),
                                     onPressed: () async {},
                                     child: Text(
-                                      'Submit',
+                                      'Fetch Location',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall
