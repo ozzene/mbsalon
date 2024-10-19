@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:mbs/util/dimensiona.dart';
 import 'package:mbs/util/images.dart';
 import 'package:mbs/view/screens/settings/widgets/edit_salon_details/edit_salon_details_screen.dart';
+import 'package:mbs/view/screens/settings/widgets/managestaff/manage_staff_screen.dart';
 import 'package:mbs/view/widgets/custom_switch.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -361,7 +362,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const EditSalonDetailsScreen(),
+                            builder: (context) =>
+                                const EditSalonDetailsScreen(),
                           ),
                         );
                       },
@@ -401,28 +403,38 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     SizedBox(
                       height: Dimensions.paddingSizeDefault,
                     ),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: Dimensions.paddingSizeDefault,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Manage Staff",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(
-                                  fontSize: Dimensions.fontSizeDefault,
-                                  fontWeight: FontWeight.w500,
-                                  color:
-                                      const Color(0xFF121212).withOpacity(0.6),
-                                  letterSpacing: 1,
-                                ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ManageStaffScreen(),
                           ),
-                        ],
+                        );
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.paddingSizeDefault,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Manage Staff",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium
+                                  ?.copyWith(
+                                    fontSize: Dimensions.fontSizeDefault,
+                                    fontWeight: FontWeight.w500,
+                                    color: const Color(0xFF121212)
+                                        .withOpacity(0.6),
+                                    letterSpacing: 1,
+                                  ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
