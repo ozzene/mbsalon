@@ -12,14 +12,14 @@ import 'package:mbs/view/widgets/custom_textinput_widget.dart';
 import 'package:mbs/view/widgets/multiselected_widget.dart';
 import 'package:image_picker/image_picker.dart';
 
-class EditBankDetailsScreen extends StatefulWidget {
-  const EditBankDetailsScreen({super.key});
+class UpdateStaffScreen extends StatefulWidget {
+  const UpdateStaffScreen({super.key});
 
   @override
-  State<EditBankDetailsScreen> createState() => _EditBankDetailsScreenState();
+  State<UpdateStaffScreen> createState() => _UpdateStaffScreenState();
 }
 
-class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
+class _UpdateStaffScreenState extends State<UpdateStaffScreen> {
   List<String> serviceGenders = ["Male", "Female"];
   List<String> selectedServiceGenders = [];
   File? _profileImage;
@@ -72,7 +72,7 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
                 horizontal: Dimensions.paddingSizeDefault,
               ),
               child: Text(
-                "Edit Bank Details",
+                "Add Staff",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontSize: Dimensions.fontSizeExtraLarge,
                     fontWeight: FontWeight.w700,
@@ -100,109 +100,60 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
                           SizedBox(
                             height: Dimensions.paddingSizeDefault,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Bank Name",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(
-                                      fontSize: Dimensions.fontSizeLarge,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1,
+                          SizedBox(
+                            width: Get.width,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                GestureDetector(
+                                  onTap: () async => await _pickImage(false),
+                                  child: AnimatedContainer(
+                                    duration: const Duration(milliseconds: 300),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(
+                                        120,
+                                      ),
+                                      color: const Color(
+                                        0xFFf4f4f4,
+                                      ),
+                                      image: _profileImage != null
+                                          ? DecorationImage(
+                                              image: FileImage(
+                                                _profileImage!,
+                                                
+                                              ),
+                                              fit: BoxFit.cover
+                                            )
+                                          : null,
                                     ),
-                              ),
-                              SizedBox(
-                                height: Dimensions.paddingSizeSmall,
-                              ),
-                              CustomTextField(
-                                borderRadius: Dimensions.radiusSmall,
-                                hintText: 'CBZ Bank',
-                                controller: TextEditingController(),
-                                fillColor: Theme.of(context)
-                                    .hintColor
-                                    .withOpacity(0.25),
-                                inputType: TextInputType.emailAddress,
-                                borderColor: null,
-                              ),
-                            ],
+                                    padding: EdgeInsets.all(
+                                        Dimensions.paddingSizeSmall),
+                                    height: 120,
+                                    width: 120,
+                                    child: Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        SvgPicture.asset(
+                                          Images.add,
+                                          height: 48,
+                                          width: 48,
+                                          color: Colors.white,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: Dimensions.paddingSizeDefault,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(
-                                height: Dimensions.paddingSizeLarge,
-                              ),
                               Text(
-                                "Account Number",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(
-                                      fontSize: Dimensions.fontSizeLarge,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1,
-                                    ),
-                              ),
-                              SizedBox(
-                                height: Dimensions.paddingSizeSmall,
-                              ),
-                              CustomTextField(
-                                borderRadius: Dimensions.radiusSmall,
-                                hintText: '0000 0000 00000 00000',
-                                controller: TextEditingController(),
-                                fillColor: Theme.of(context)
-                                    .hintColor
-                                    .withOpacity(0.25),
-                                inputType: TextInputType.emailAddress,
-                                // errorText: "Please enter your email",
-                                borderColor: null,
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: Dimensions.paddingSizeLarge,
-                              ),
-                              Text(
-                                "Re-Enter Account Number",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(
-                                      fontSize: Dimensions.fontSizeLarge,
-                                      fontWeight: FontWeight.w400,
-                                      letterSpacing: 1,
-                                    ),
-                              ),
-                              SizedBox(
-                                height: Dimensions.paddingSizeSmall,
-                              ),
-                              CustomTextField(
-                                borderRadius: Dimensions.radiusSmall,
-                                hintText: '0000 0000 00000 00000',
-                                controller: TextEditingController(),
-                                fillColor: Theme.of(context)
-                                    .hintColor
-                                    .withOpacity(0.25),
-                                inputType: TextInputType.emailAddress,
-                                // errorText: "Please enter your email",
-                                borderColor: null,
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: Dimensions.paddingSizeLarge,
-                              ),
-                              Text(
-                                "Holder's Name",
+                                "Staff Name",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium
@@ -223,7 +174,6 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
                                     .hintColor
                                     .withOpacity(0.25),
                                 inputType: TextInputType.emailAddress,
-                                // errorText: "Please enter your email",
                                 borderColor: null,
                               ),
                             ],
@@ -235,7 +185,7 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
                                 height: Dimensions.paddingSizeLarge,
                               ),
                               Text(
-                                "Swift Code",
+                                "Phone Number",
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium
@@ -250,7 +200,7 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
                               ),
                               CustomTextField(
                                 borderRadius: Dimensions.radiusSmall,
-                                hintText: '176',
+                                hintText: '26377452729',
                                 controller: TextEditingController(),
                                 fillColor: Theme.of(context)
                                     .hintColor
@@ -261,83 +211,38 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(
-                            width: Get.width,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                SizedBox(
-                                  height: Dimensions.paddingSizeLarge,
-                                ),
-                                Text(
-                                  "Cancelled Cheque Photo",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                        fontSize: Dimensions.fontSizeLarge,
-                                        fontWeight: FontWeight.w400,
-                                        letterSpacing: 1,
-                                      ),
-                                ),
-                                SizedBox(
-                                  height: Dimensions.paddingSizeSmall,
-                                ),
-                                Text(
-                                  "Photo should be clear",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                        fontSize: Dimensions.fontSizeSmall,
-                                        fontWeight: FontWeight.w400,
-                                        letterSpacing: 1,
-                                      ),
-                                ),
-                                SizedBox(
-                                  height: Dimensions.paddingSizeSmall,
-                                ),
-                                GestureDetector(
-                                  onTap: () async => await _pickImage(false),
-                                  child: AnimatedContainer(
-                                    duration: const Duration(milliseconds: 300),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                        Dimensions.radiusDefault,
-                                      ),
-                                      color: const Color(
-                                        0xFFf4f4f4,
-                                      ),
-                                      image: _profileImage != null
-                                          ? DecorationImage(
-                                              image: FileImage(
-                                                _profileImage!,
-                                              ),
-                                              fit: BoxFit.cover)
-                                          : null,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: Dimensions.paddingSizeDefault,
+                              ),
+                              Text(
+                                "Genders",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      fontSize: Dimensions.fontSizeLarge,
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 1,
                                     ),
-                                    padding: EdgeInsets.all(
-                                        Dimensions.paddingSizeSmall),
-                                    height: 120,
-                                    width: 120,
-                                    child: const Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.more_horiz,
-                                          size: 48,
-                                          color: Colors.white,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: Dimensions.paddingSizeDefault,
-                          ),
+                              ),
+                              SizedBox(
+                                height: Dimensions.paddingSizeSmall,
+                              ),
+                              MultiSelectWidget(
+                                selectionWidgetList: serviceGenders,
+                                selectedWidgetList: selectedServiceGenders,
+                                maximumSelectionSize: 1,
+                                onSelectionChanged: (selected) {
+                                  setState(() {
+                                    selectedServiceGenders = selected;
+                                  });
+                                },
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -377,7 +282,7 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
                 ),
                 onPressed: () async {},
                 child: Text(
-                  'Submit',
+                  'Add Staff',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

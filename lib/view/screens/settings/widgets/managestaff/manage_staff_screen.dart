@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mbs/util/dimensiona.dart';
 import 'package:mbs/util/images.dart';
+import 'package:mbs/view/screens/settings/widgets/managestaff/widget/update_staff_screen.dart';
 import 'package:mbs/view/widgets/custom_switch_widget.dart';
 
 class ManageStaffScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class ManageStaffScreen extends StatefulWidget {
 class _ManageStaffScreenState extends State<ManageStaffScreen> {
   @override
   Widget build(BuildContext context) {
+    var appBarHeight = AppBar().preferredSize.height;
     return Scaffold(
       backgroundColor: const Color(
         0xFFf4f4f4,
@@ -167,7 +169,8 @@ class _ManageStaffScreenState extends State<ManageStaffScreen> {
                                                 .withOpacity(0.25),
                                           ),
                                           child: Row(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
                                             children: [
                                               Text(
                                                 "5.0",
@@ -256,10 +259,45 @@ class _ManageStaffScreenState extends State<ManageStaffScreen> {
                                   SizedBox(
                                     height: Dimensions.paddingSizeExtraSmall,
                                   ),
-                                  const Icon(
-                                    Icons.more_horiz,
-                                    color: Colors.grey,
-                                    size: 32,
+                                  PopupMenuButton(
+                                    icon: const Icon(
+                                      Icons.more_horiz,
+                                      color: Colors.grey,
+                                      size: 22,
+                                    ),
+                                    elevation: 10,
+                                    padding: EdgeInsets.zero,
+                                    onSelected: (value) {},
+                                    offset: const Offset(0, 30),
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(
+                                          Dimensions.radiusSmall,
+                                        ),
+                                      ),
+                                    ),
+                                    itemBuilder: (context) {
+                                      return [
+                                        PopupMenuItem(
+                                          onTap: () {},
+                                          height: 30,
+                                          value: 'edit',
+                                          child: const Text("Edit"),
+                                        ),
+                                        PopupMenuItem(
+                                          onTap: () {},
+                                          height: 30,
+                                          value: 'order_history',
+                                          child: const Text("Order History"),
+                                        ),
+                                        PopupMenuItem(
+                                          onTap: () {},
+                                          height: 30,
+                                          value: 'delete',
+                                          child: const Text("Delete"),
+                                        ),
+                                      ];
+                                    },
                                   ),
                                 ],
                               ),
@@ -282,7 +320,14 @@ class _ManageStaffScreenState extends State<ManageStaffScreen> {
         child: FloatingActionButton(
           backgroundColor: Theme.of(context).primaryColor,
           tooltip: 'Add Staff',
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const UpdateStaffScreen(),
+              ),
+            );
+          },
           child: SvgPicture.asset(
             Images.add,
             color: Colors.white,

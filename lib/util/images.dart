@@ -80,4 +80,6 @@ class Images {
   static const String send = 'assets/images/icons/send.svg';
   static const String clip = 'assets/images/icons/clip.svg';
   static const String binSolid = 'assets/images/icons/bin-solid.svg';
+  static const String award = 'assets/images/icons/award.svg';
+  static const String dots = 'assets/images/icons/dots.svg';
 }
