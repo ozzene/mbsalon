@@ -5,7 +5,9 @@ import 'package:mbs/controller/auth_controller.dart';
 import 'package:mbs/helper/route_helper.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key, }) : super(key: key);
+  const SplashScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -17,11 +19,15 @@ class _SplashScreenState extends State<SplashScreen> {
       AuthStatus authStatus = await Get.find<AuthController>().authCheck();
 
       if (authStatus == AuthStatus.signedIn) {
-        Get.offAllNamed(RouteHelper.bottomnavigation);
+        Get.offAllNamed(
+          RouteHelper.welcome,
+        );
       }
 
       if (authStatus == AuthStatus.signedOut) {
-        Get.offAllNamed(RouteHelper.bottomnavigation);
+        Get.offAllNamed(
+          RouteHelper.welcome,
+        );
       }
     });
   }

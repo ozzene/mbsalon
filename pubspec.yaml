@@ -46,3 +46,20 @@ flutter:
           weight: 700
         - asset: assets/font/Roboto-Black.ttf
           weight: 900
+        - asset: assets/font/Outfit-Regular.ttf
+        - asset: assets/font/Outfit-Bold.ttf
+          weight: 700
+        - asset: assets/font/Outfit-Medium.ttf
+          weight: 500
+        - asset: assets/font/Outfit-Light.ttf
+          weight: 300
+        - asset: assets/font/Outfit-Black.ttf
+          weight: 900
+        - asset: assets/font/Outfit-ExtraBold.ttf
+          weight: 800
+        - asset: assets/font/Outfit-ExtraLight.ttf
+          weight: 200
+        - asset: assets/font/Outfit-SemiBold.ttf
+          weight: 600
+        - asset: assets/font/Outfit-Thin.ttf
+          weight: 100

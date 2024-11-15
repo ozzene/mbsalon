@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:mbs/view/screens/admin/home/home_screen.dart';
+import 'package:mbs/view/screens/admin/navigation/bottom_navigation_widget.dart';
 import 'package:mbs/view/screens/auth/widgets/signinscreen.dart';
 import 'package:mbs/view/screens/auth/widgets/signupscreen.dart';
-import 'package:mbs/view/screens/home/home_screen.dart';
-import 'package:mbs/view/screens/navigation/bottom_navigation_widget.dart';
+import 'package:mbs/view/screens/client/navigation/client_bottom_tabs.dart';
 
 import 'package:mbs/view/screens/splash/splashscreen.dart';
+import 'package:mbs/view/screens/welcome/welcome_screen.dart';
 
 class RouteHelper {
   static const String initial = '/';
@@ -13,6 +15,8 @@ class RouteHelper {
   static const String register = '/register';
   static const String bottomnavigation = '/bottomnavigation';
   static const String home = '/home';
+  static const String welcome = '/welcome';
+  static const String clientbottomtabs = '/welcome';
 
   static getInitialRoute() => initial;
   static getSplashRoute() => splash;
@@ -21,6 +25,12 @@ class RouteHelper {
   static getBottomnavigationRoute(String name) =>
       '$bottomnavigation?name=$name';
   static getHomeRoute(String name) => '$home?name=$name';
+  static getWelcomeRoute(String name) => '$welcome?name=$name';
+
+  //admin
+
+  //client
+  static getClientBottomtabsRoute(String name) => '$clientbottomtabs?name=$name';
 
   static List<GetPage> routes = [
     GetPage(name: initial, page: () => const SplashScreen()),
@@ -46,6 +56,18 @@ class RouteHelper {
     GetPage(
       name: home,
       page: () => const HomeScreen(),
+      transition: Transition.cupertinoDialog,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: welcome,
+      page: () => const WelcomeScreen(),
+      transition: Transition.cupertinoDialog,
+      transitionDuration: const Duration(milliseconds: 300),
+    ),
+    GetPage(
+      name: clientbottomtabs,
+      page: () => const ClientBottomTabs(),
       transition: Transition.cupertinoDialog,
       transitionDuration: const Duration(milliseconds: 300),
     ),

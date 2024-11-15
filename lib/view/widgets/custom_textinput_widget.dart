@@ -69,7 +69,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
       maxLines: widget.maxLines,
       controller: widget.controller,
       focusNode: widget.focusNode,
-      style: Theme.of(context).textTheme.labelMedium,
+      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+            fontSize: Dimensions.fontSizeDefault,
+            fontWeight: FontWeight.w400,
+            letterSpacing: 2
+          ),
       textInputAction: widget.inputAction,
       keyboardType: widget.inputType,
       cursorColor: Theme.of(context).primaryColor,
@@ -97,7 +101,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               : null),
       decoration: widget.inputDecoration ??
           InputDecoration(
-            contentPadding: EdgeInsets.all(Dimensions.paddingSizeDefault),
+            contentPadding: EdgeInsets.all(Dimensions.paddingSizeLarge),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
                   widget.borderRadius ?? Dimensions.radiusSmall),
@@ -107,8 +111,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             hintText: widget.hintText,
             fillColor: widget.fillColor ?? Theme.of(context).cardColor,
             hintStyle: widget.hintStyle ??
-                Theme.of(context).textTheme.labelSmall?.copyWith(
+                Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontSize: Dimensions.fontSizeDefault,
                       color: Theme.of(context).hintColor,
+                      fontWeight: FontWeight.w400,
                     ),
             filled: true,
             prefixIcon: widget.prefixIcon != null
