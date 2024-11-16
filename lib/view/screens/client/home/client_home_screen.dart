@@ -9,6 +9,8 @@ import 'package:mbs/controller/auth_controller.dart';
 import 'package:mbs/util/dimensiona.dart';
 import 'package:mbs/util/images.dart';
 import 'package:mbs/view/screens/client/salon/client_salon_screen.dart';
+import 'package:mbs/view/screens/client/search/client_search_by_category_screen.dart';
+import 'package:mbs/view/screens/client/search/client_search_screen.dart';
 
 class ClientHomeScreen extends StatefulWidget {
   const ClientHomeScreen({
@@ -130,41 +132,51 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                         horizontal: Dimensions.paddingSizeDefault),
                     child: SizedBox(
                       width: Get.width,
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            Dimensions.radiusDefault,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ClientSearchScreen(),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              Dimensions.radiusDefault,
+                            ),
                           ),
-                        ),
-                        shadowColor:
-                            Theme.of(context).shadowColor.withOpacity(0.2),
-                        color: Colors.white,
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            Dimensions.paddingSizeLarge,
-                          ),
-                          child: Row(
-                            children: [
-                              Image.asset(
-                                Images.icSearch,
-                                color: const Color(0xFF545454),
-                                height: 14,
-                              ),
-                              SizedBox(
-                                width: Dimensions.paddingSizeSmall,
-                              ),
-                              Text(
-                                "Search by store or category",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelMedium
-                                    ?.copyWith(
-                                        color: const Color(
-                                          0xFF545454,
-                                        ),
-                                        fontSize: Dimensions.fontSizeDefault),
-                              ),
-                            ],
+                          shadowColor:
+                              Theme.of(context).shadowColor.withOpacity(0.2),
+                          color: Colors.white,
+                          child: Padding(
+                            padding: EdgeInsets.all(
+                              Dimensions.paddingSizeLarge,
+                            ),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  Images.icSearch,
+                                  color: const Color(0xFF545454),
+                                  height: 14,
+                                ),
+                                SizedBox(
+                                  width: Dimensions.paddingSizeSmall,
+                                ),
+                                Text(
+                                  "Search by store or category",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                          color: const Color(
+                                            0xFF545454,
+                                          ),
+                                          fontSize: Dimensions.fontSizeDefault),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -292,7 +304,15 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                             .entries
                             .map(
                               (item) => GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          SearchCategoryScreen(),
+                                    ),
+                                  );
+                                },
                                 child: Card(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(

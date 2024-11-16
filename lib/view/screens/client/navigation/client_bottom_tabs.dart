@@ -5,6 +5,7 @@ import 'package:mbs/util/dimensiona.dart';
 import 'package:mbs/util/images.dart';
 import 'package:mbs/view/screens/client/booking/client_booking_screen.dart';
 import 'package:mbs/view/screens/client/chats/client_chat_screen.dart';
+import 'package:mbs/view/screens/client/favourites/client_favourites_screen.dart';
 import 'package:mbs/view/screens/client/home/client_home_screen.dart';
 import 'package:mbs/view/screens/client/profile/client_profile_screen.dart';
 import 'package:mbs/view/screens/client/settings/settings_screen.dart';
@@ -20,7 +21,7 @@ class _ClientBottomTabsState extends State<ClientBottomTabs> {
   int _selectedIndex = 0;
   final List<Widget> _screens = const [
     ClientHomeScreen(),
-    ClientProfileScreen(),
+    ClientFavouriteScreen(),
     ClientBookingScreen(),
     ClientChatScreen(),
     ClientSettingsScreen(),
@@ -73,7 +74,7 @@ class _ClientBottomTabsState extends State<ClientBottomTabs> {
                 Images.icFav,
                 Images.icFav,
               ],
-              "Explore",
+              "Favourite",
               context,
             ),
             buildBottomNavItem(

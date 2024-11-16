@@ -23,7 +23,7 @@ class CustomTextField extends StatefulWidget {
   final String? errorText;
   final Color? fillColor;
   final Color? borderColor;
-  final IconData? suffixicon;
+  final String? suffixicon;
   final bool isReadOnly;
   final Color? suffixiconcolor;
   final List<TextInputFormatter>? inputFormatter;
@@ -70,10 +70,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       controller: widget.controller,
       focusNode: widget.focusNode,
       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            fontSize: Dimensions.fontSizeDefault,
-            fontWeight: FontWeight.w400,
-            letterSpacing: 2
-          ),
+          fontSize: Dimensions.fontSizeDefault,
+          fontWeight: FontWeight.w400,
+          letterSpacing: 2),
       textInputAction: widget.inputAction,
       keyboardType: widget.inputType,
       cursorColor: Theme.of(context).primaryColor,
@@ -120,9 +119,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             prefixIcon: widget.prefixIcon != null
                 ? Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: Dimensions.paddingSizeExtraSmall),
-                    child:
-                        Image.asset(widget.prefixIcon!, height: 20, width: 20),
+                      horizontal: Dimensions.paddingSizeExtraSmall,
+                    ),
+                    child: Image.asset(widget.prefixIcon!,
+                        height: 20, width: 20),
                   )
                 : null,
             suffixIcon: widget.isPassword
@@ -132,7 +132,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
                         color: Theme.of(context).hintColor.withOpacity(0.3)),
                     onPressed: _toggle,
                   )
-                : Icon(widget.suffixicon, color: widget.suffixiconcolor),
+                : (widget.suffixicon != null
+                    ? Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: Dimensions.paddingSizeSmall,
+                        ),
+                        child: Image.asset(
+                          widget.suffixicon!,
+                          color: widget.suffixiconcolor,
+                          width: 24,
+                        ),
+                      )
+                    : null),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(
                   widget.borderRadius ?? Dimensions.radiusSmall),

@@ -2,6 +2,8 @@
 import 'package:mbs/view/screens/admin/salon/widget/details_section.dart';
 import 'package:mbs/view/screens/admin/salon/widget/gallery_section.dart';
 import 'package:mbs/view/screens/admin/salon/widget/services_section.dart';
+import 'package:mbs/view/screens/client/salon/widget/awards_section.dart';
+import 'package:mbs/view/screens/client/salon/widget/reviews_section.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -385,7 +387,8 @@ class _ClientSalonScreenState extends State<ClientSalonScreen> {
                         "Services",
                         "Gallery",
                         "Staff",
-                        "Others"
+                        "Reviews",
+                        "Awards"
                       ]
                           .asMap()
                           .entries
@@ -402,7 +405,7 @@ class _ClientSalonScreenState extends State<ClientSalonScreen> {
                                   right: Dimensions.paddingSizeDefault,
                                 ),
                                 padding: EdgeInsets.symmetric(
-                                  vertical: Dimensions.paddingSizeDefault,
+                                  vertical: Dimensions.paddingSizeSmall,
                                   horizontal: Dimensions.paddingSizeLarge,
                                 ),
                                 decoration: BoxDecoration(
@@ -444,7 +447,7 @@ class _ClientSalonScreenState extends State<ClientSalonScreen> {
 
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              addAutomaticKeepAlives: true,
+              addAutomaticKeepAlives: false,
               (context, index) => SizedBox(
                 height: Get.height,
                 child: Column(
@@ -453,6 +456,8 @@ class _ClientSalonScreenState extends State<ClientSalonScreen> {
                     if (selectedSection == 0) const DetailsSection(),
                     if (selectedSection == 1) const ServicesSection(),
                     if (selectedSection == 2) const GallerySection(),
+                    if (selectedSection == 4) const ReviewsSection(),
+                    if (selectedSection == 5) const AwardsSection(),
                     // if (selectedSection == 3) const StaffSection(),
                   ],
                 ),
@@ -462,6 +467,68 @@ class _ClientSalonScreenState extends State<ClientSalonScreen> {
           ),
         ],
       ),
+      bottomSheet:(selectedSection == 1)? Container(
+        padding: EdgeInsets.all(Dimensions.paddingSizeDefault),
+        height: 80,
+        width: Get.width,
+        child: Row(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '\$150',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.w800,
+                        fontSize: Dimensions.fontSizeExtraLarge,
+                      ),
+                ),
+                Text(
+                  'Subtotal',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: const Color(0xFF545454),
+                        fontWeight: FontWeight.w400,
+                        fontSize: Dimensions.fontSizeExtraSmall,
+                      ),
+                ),
+              ],
+            ),
+            SizedBox(
+              width: Dimensions.paddingSizeSmall,
+            ),
+            Expanded(
+              child: SizedBox(
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Theme.of(context).primaryColor,
+                    textStyle: const TextStyle(
+                        color: Colors.white, fontStyle: FontStyle.normal),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(Dimensions.radiusDefault),
+                      ),
+                    ),
+                    shadowColor: Theme.of(context).primaryColor,
+                  ),
+                  onPressed: () async {},
+                  child: Text(
+                    'Place Booking',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: Dimensions.fontSizeLarge,
+                        ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ):null,
     );
   }
 }

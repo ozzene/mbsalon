@@ -6,11 +6,36 @@ import 'package:get/get.dart';
 import 'package:mbs/util/dimensiona.dart';
 import 'package:mbs/util/images.dart';
 
-class ServicesSection extends StatelessWidget {
+class ServicesSection extends StatefulWidget {
   const ServicesSection({super.key});
 
   @override
+  State<ServicesSection> createState() => _ServicesSectionState();
+}
+
+class _ServicesSectionState extends State<ServicesSection> {
+  // List to store added service items
+  final List<String> _services = [];
+
+  // Method to add or remove a service
+  void _toggleService(String service) {
+    setState(() {
+      if (_services.contains(service)) {
+        _services.remove(service);
+      } else {
+        _services.add(service);
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final List<String> availableServices = [
+      "Special Ganga hot stone massage",
+      "Relaxing Swedish massage",
+      "Therapeutic deep tissue massage",
+    ];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -26,7 +51,7 @@ class ServicesSection extends StatelessWidget {
               child: Text(
                 "MASSAGE",
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontSize: Dimensions.fontSizeExtraLarge,
+                      fontSize: Dimensions.fontSizeLarge,
                       color: Theme.of(context).primaryColor,
                       fontWeight: FontWeight.w400,
                     ),
@@ -42,153 +67,180 @@ class ServicesSection extends StatelessWidget {
             vertical: Dimensions.paddingSizeExtraSmall,
           ),
           child: Column(
-            children: ["", "", ""]
-                .asMap()
-                .entries
+            children: availableServices
                 .map(
-                  (e) => GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      constraints: const BoxConstraints(maxHeight: 120),
-                      margin: EdgeInsets.symmetric(
-                        vertical: Dimensions.paddingSizeSmall,
+                  (service) => Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        Dimensions.radiusDefault,
                       ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          Dimensions.radiusDefault,
-                        ),
-                        color: const Color(0xFFFFFFFF),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xFF121212).withOpacity(0.09),
-                            offset: const Offset(3, 3),
-                            blurRadius: 9,
-                            spreadRadius: 1,
-                          )
-                        ],
-                      ),
-                      clipBehavior: Clip.antiAlias,
-                      width: Get.width,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Expanded(
-                            flex: 5,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                    "assets/images/images/brushes.jpeg",
-                                  ),
-                                  fit: BoxFit.cover,
-                                ),
-                                color: Theme.of(context)
-                                    .primaryColor
-                                    .withOpacity(0.25),
-                              ),
+                    ),
+                    margin:
+                        EdgeInsets.only(bottom: Dimensions.paddingSizeDefault),
+                    shadowColor: Theme.of(context).shadowColor.withOpacity(0.5),
+                    color: Colors.white,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 100,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft:
+                                  Radius.circular(Dimensions.radiusDefault),
+                              bottomLeft:
+                                  Radius.circular(Dimensions.radiusDefault),
                             ),
                           ),
-                          Expanded(
-                            flex: 9,
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: Dimensions.paddingSizeDefault,
-                                vertical: Dimensions.paddingSizeDefault,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text(
-                                        "Spa",
+                          child: Image.asset(
+                            Images.massage,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Expanded(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: Dimensions.paddingSizeSmall,
+                                      ),
+                                      child: Text(
+                                        "Special Ganga hot stone massage",
                                         style: Theme.of(context)
                                             .textTheme
-                                            .bodyLarge
+                                            .labelMedium
                                             ?.copyWith(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize:
-                                                  Dimensions.fontSizeDefault,
-                                              color: const Color(0xFF121212),
-                                            ),
+                                                fontSize:
+                                                    Dimensions.fontSizeLarge,
+                                                color: const Color(0xFF252525),
+                                                fontWeight: FontWeight.w500),
                                       ),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "\$90",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: Dimensions
-                                                      .fontSizeOverLarge,
-                                                  color: Theme.of(context)
-                                                      .primaryColor,
-                                                ),
+                                    ),
+                                    SizedBox(
+                                      height: Dimensions.paddingSizeExtraSmall,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                Dimensions.paddingSizeSmall,
                                           ),
-                                          Text(
-                                            " - 30 min",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge
-                                                ?.copyWith(
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: Dimensions
-                                                      .fontSizeDefault,
-                                                  color: Theme.of(context)
-                                                      .hintColor,
-                                                ),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "\$150 ",
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyLarge
+                                                        ?.copyWith(
+                                                          fontSize: Dimensions
+                                                              .fontSizeLarge,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .primaryColor,
+                                                        ),
+                                                  ),
+                                                  Text(
+                                                    "- 3.5 hour",
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyLarge
+                                                        ?.copyWith(
+                                                          fontSize: Dimensions
+                                                              .fontSizeSmall,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .primaryColor,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(
+                                                height: Dimensions
+                                                    .paddingSizeExtraSmall,
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "FEMALE",
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyLarge
+                                                        ?.copyWith(
+                                                          fontSize: Dimensions
+                                                              .fontSizeSmall,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: const Color(
+                                                              0xFF545454),
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
-                                      Text(
-                                        "MALE",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodyLarge
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize:
-                                                  Dimensions.fontSizeDefault,
-                                              color:
-                                                  Theme.of(context).hintColor,
+                                        ),
+                                        SizedBox(
+                                          height: 40,
+                                          child: FloatingActionButton(
+                                            elevation: 0,
+                                            onPressed: () {
+                                              _toggleService(service);
+                                            },
+                                            tooltip: _services.contains(service)
+                                                ? 'Remove Service'
+                                                : 'Add Service',
+                                            backgroundColor:
+                                                _services.contains(service)
+                                                    ? Colors.red.withOpacity(0.75)
+                                                    : Theme.of(context)
+                                                        .primaryColor,
+                                            child: SvgPicture.asset(
+                                              _services.contains(service)
+                                                  ? Images.minus
+                                                  : Images.add,
+                                              color: Colors.white,
+                                              height: 32,
                                             ),
-                                      ),
-                                    ],
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.all(
-                                      Dimensions.paddingSizeSmall,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                                    child: SvgPicture.asset(
-                                      Images.add,
-                                      color: Colors.white,
-                                    ),
-                                  )
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          )
-                        ],
-                      ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 )
                 .toList(),
           ),
         )
-   
-   
       ],
     );
   }
